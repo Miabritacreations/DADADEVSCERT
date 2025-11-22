@@ -1,0 +1,87 @@
+{% extends "base.html" %}
+{% block title %}Admin Dashboard{% endblock %}
+{% block content %}
+<div class="flex items-center justify-between mb-6">
+  <h1 class="text-3xl font-bold">Admin Dashboard</h1>
+  <form method="post" action="/admin/logout" class="inline">
+    <button type="submit" class="text-sm text-slate-600 hover:text-orange-600">Logout</button>
+  </form>
+</div>
+<div class="grid md:grid-cols-3 gap-4 mb-8">
+  <div class="bg-white border rounded-lg p-4 shadow-sm">
+    <p class="text-sm text-slate-500">Total issued</p>
+    <p class="text-3xl font-semibold">{{ stats.total }}</p>
+  </div>
+  <div class="bg-white border rounded-lg p-4 shadow-sm">
+    <p class="text-sm text-slate-500">Active</p>
+    <p class="text-3xl font-semibold text-green-600">{{ stats.active }}</p>
+  </div>
+  <div class="bg-white border rounded-lg p-4 shadow-sm">
+    <p class="text-sm text-slate-500">Revoked</p>
+    <p class="text-3xl font-semibold text-red-600">{{ stats.revoked }}</p>
+  </div>
+</div>
+<div class="grid md:grid-cols-2 gap-6">
+  <div class="bg-white border rounded-lg p-6 shadow-sm">
+    <h2 class="text-xl font-semibold mb-4">Issue new certificate</h2>
+    <form action="/admin/issue" method="post" class="space-y-4">
+      <div>
+        <label class="text-sm text-slate-600">Name</label>
+        <input name="name" required class="w-full border rounded-md px-3 py-2" placeholder="Grace Mugoiri" />
+      </div>
+      <div>
+        <label class="text-sm text-slate-600">Cohort</label>
+        <input name="cohort" class="w-full border rounded-md px-3 py-2" placeholder="Bitcoin Core 2025" />
+      </div>
+      <div>
+        <label class="text-sm text-slate-600">Email (optional)</label>
+        <input name="email" type="email" class="w-full border rounded-md px-3 py-2" placeholder="grace@dadadevs.com" />
+      </div>
+      <button class="w-full bg-orange-500 text-white py-2 rounded-md font-semibold">Issue & download PDF</button>
+    </form>
+  </div>
+  <div class="bg-white border rounded-lg p-6 shadow-sm">
+    <h2 class="text-xl font-semibold mb-4">Bulk upload (CSV)</h2>
+    <form action="/admin/bulk" method="post" enctype="multipart/form-data" class="space-y-4">
+      <input type="file" name="csv_file" accept=".csv" class="w-full border rounded-md px-3 py-2" required />
+      <p class="text-sm text-slate-500">Columns: name, cohort, email</p>
+      <button class="w-full border border-orange-500 text-orange-500 py-2 rounded-md font-semibold">Upload & issue</button>
+    </form>
+  </div>
+</div>
+<section class="mt-10">
+  <div class="flex justify-between items-center mb-3">
+    <h2 class="text-xl font-semibold">Recent certificates</h2>
+    <a href="/admin/history" class="text-sm text-orange-500">View all</a>
+  </div>
+  <div class="bg-white border rounded-lg shadow-sm overflow-x-auto">
+    <table class="min-w-full text-sm">
+      <thead>
+        <tr class="text-left bg-slate-50">
+          <th class="px-4 py-2">Name</th>
+          <th class="px-4 py-2">Cohort</th>
+          <th class="px-4 py-2">Issued</th>
+          <th class="px-4 py-2">Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for cert in certificates %}
+        <tr class="border-t">
+          <td class="px-4 py-2">{{ cert.name }}</td>
+          <td class="px-4 py-2">{{ cert.cohort }}</td>
+          <td class="px-4 py-2">{{ cert.issued_at }}</td>
+          <td class="px-4 py-2">
+            {% if cert.revoked %}
+              <span class="text-red-600 text-xs font-semibold">Revoked</span>
+            {% else %}
+              <span class="text-green-600 text-xs font-semibold">Active</span>
+            {% endif %}
+          </td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</section>
+{% endblock %}
+

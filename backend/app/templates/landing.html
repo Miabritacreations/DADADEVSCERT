@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+{% block title %}Dada Devs Certificates{% endblock %}
+{% block content %}
+<section class="grid gap-6 md:grid-cols-2 items-center">
+  <div>
+    <p class="uppercase tracking-[0.3em] text-xs text-orange-500 mb-2">Dada Devs</p>
+    <h1 class="text-4xl font-bold text-slate-900 mb-4">Blockchain-secured certificates for African female builders.</h1>
+    <p class="text-slate-600 mb-6">
+      Generate tamper-proof certificates with Ed25519 signatures, Bitcoin OpenTimestamps anchoring, and shareable verification links.
+    </p>
+    <div class="flex gap-4">
+      <a href="/admin" class="px-5 py-3 bg-orange-500 text-white rounded-md text-sm font-semibold shadow">Admin Dashboard</a>
+      <a href="#verify" class="px-5 py-3 border border-orange-500 text-orange-500 rounded-md text-sm font-semibold">Verify Certificate</a>
+    </div>
+    <dl class="grid grid-cols-2 gap-6 mt-10">
+      <div>
+        <dt class="text-sm text-slate-500">Certificates issued</dt>
+        <dd class="text-3xl font-semibold">{{ stats.total }}</dd>
+      </div>
+      <div>
+        <dt class="text-sm text-slate-500">Revoked certificates</dt>
+        <dd class="text-3xl font-semibold">{{ stats.revoked }}</dd>
+      </div>
+    </dl>
+  </div>
+  <div class="bg-white rounded-xl shadow p-6 border border-slate-100">
+    <h2 class="text-lg font-semibold mb-4">Instant certificate issuance (demo)</h2>
+    <form action="/issue" method="post" class="space-y-4">
+      <div>
+        <label class="block text-sm font-medium text-slate-600 mb-1">Learner name</label>
+        <input name="name" required class="w-full border rounded-md px-3 py-2 focus:outline-none focus:ring focus:ring-orange-100" placeholder="Wandia Mugo" />
+      </div>
+      <div>
+        <label class="block text-sm font-medium text-slate-600 mb-1">Cohort</label>
+        <input name="cohort" class="w-full border rounded-md px-3 py-2 focus:outline-none focus:ring focus:ring-orange-100" placeholder="Lightning Builders 2025" />
+      </div>
+      <button type="submit" class="w-full bg-slate-900 text-white py-2 rounded-md font-semibold">Generate PDF</button>
+    </form>
+  </div>
+</section>
+
+<section id="verify" class="mt-16 bg-white border rounded-xl shadow-sm p-6">
+  <h3 class="text-xl font-semibold mb-4">Verify a certificate</h3>
+  <p class="text-sm text-slate-600 mb-4">Paste the unique certificate ID to view authenticity and blockchain proofs.</p>
+  <form action="/verify" method="get" class="flex gap-3">
+    <input name="cert_id" placeholder="Certificate UUID" class="flex-1 border rounded-md px-3 py-2 focus:outline-none focus:ring focus:ring-orange-100" />
+    <button class="px-4 bg-orange-500 text-white rounded-md">Verify</button>
+  </form>
+</section>
+{% endblock %}
+

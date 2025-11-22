@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{% block title %}Dada Devs Certificates{% endblock %}</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/app.css') }}">
+  {% block head %}{% endblock %}
+</head>
+<body class="bg-slate-50 min-h-screen text-slate-900">
+  <nav class="bg-white shadow-sm">
+    <div class="max-w-6xl mx-auto px-4 py-4 flex justify-between items-center">
+      <a href="/" class="flex items-center space-x-3">
+        <div class="flex items-center space-x-1">
+          <span class="text-orange-600 font-bold text-2xl">&lt;</span>
+          <span class="text-orange-600 font-bold text-2xl">/</span>
+          <span class="text-yellow-500 font-bold text-2xl">&gt;</span>
+        </div>
+        <div class="flex flex-col">
+          <span class="text-lg font-bold text-slate-900">DADA DEVS</span>
+          <span class="text-xs font-bold text-slate-700">₿UIDL 4 AFRICA</span>
+        </div>
+      </a>
+      <div class="space-x-4">
+        <a href="/admin" class="text-sm font-medium text-slate-600 hover:text-orange-600">Admin</a>
+        <a href="/admin/history" class="text-sm font-medium text-slate-600 hover:text-orange-600">History</a>
+      </div>
+    </div>
+  </nav>
+  <main class="max-w-6xl mx-auto px-4 py-8">
+    {% with messages = get_flashed_messages(with_categories=true) %}
+      {% if messages %}
+        <div class="space-y-2 mb-6">
+          {% for category, message in messages %}
+            <div class="flash {{ category }}">
+              {{ message }}
+            </div>
+          {% endfor %}
+        </div>
+      {% endif %}
+    {% endwith %}
+    {% block content %}{% endblock %}
+  </main>
+  <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+  {% block scripts %}{% endblock %}
+</body>
+</html>
+

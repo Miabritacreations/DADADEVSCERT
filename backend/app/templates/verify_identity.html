@@ -1,0 +1,88 @@
+{% extends "base.html" %}
+{% block title %}Verify Identity{% endblock %}
+{% block content %}
+<div class="max-w-3xl mx-auto bg-white border rounded-xl shadow-sm p-8">
+  <h1 class="text-3xl font-semibold mb-6">Student Identity Verification</h1>
+  
+  {% if error %}
+    <div class="bg-red-50 border border-red-200 rounded-lg p-4 mb-6">
+      <p class="text-red-700">{{ error }}</p>
+    </div>
+  {% endif %}
+  
+  {% if message %}
+    <div class="bg-green-50 border border-green-200 rounded-lg p-4 mb-6">
+      <p class="text-green-700">{{ message }}</p>
+    </div>
+  {% endif %}
+  
+  {% if verified %}
+    <div class="bg-green-50 border border-green-200 rounded-lg p-6 mb-6 text-center">
+      <svg class="w-16 h-16 mx-auto mb-4 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+      </svg>
+      <h2 class="text-2xl font-bold text-green-700 mb-2">Identity Verified!</h2>
+      <p class="text-green-600">Your identity has been successfully verified for this certificate.</p>
+    </div>
+  {% elif token %}
+    <div class="border rounded-lg p-6 mb-6">
+      <h2 class="text-xl font-semibold mb-4">Verification Link Generated</h2>
+      <p class="text-slate-600 mb-4">Use this link to verify your identity:</p>
+      <div class="bg-slate-50 border rounded p-3 mb-4">
+        <code class="text-sm break-all">{{ verify_url }}</code>
+      </div>
+      <p class="text-sm text-slate-500">This link has been sent to your email. Click it to complete verification.</p>
+    </div>
+  {% else %}
+    <div class="mb-6">
+      <h2 class="text-xl font-semibold mb-4">Certificate Information</h2>
+      <dl class="grid grid-cols-2 gap-4">
+        <div>
+          <dt class="text-sm text-slate-500">Recipient</dt>
+          <dd class="text-lg font-semibold">{{ cert.name }}</dd>
+        </div>
+        <div>
+          <dt class="text-sm text-slate-500">Cohort</dt>
+          <dd class="text-lg font-semibold">{{ cert.cohort }}</dd>
+        </div>
+        <div>
+          <dt class="text-sm text-slate-500">Certificate ID</dt>
+          <dd class="font-mono text-sm">{{ cert.id }}</dd>
+        </div>
+        <div>
+          <dt class="text-sm text-slate-500">Issued</dt>
+          <dd>{{ cert.issued_at }}</dd>
+        </div>
+      </dl>
+    </div>
+    
+    <form method="post" class="border rounded-lg p-6">
+      <h2 class="text-xl font-semibold mb-4">Verify Your Email</h2>
+      <p class="text-slate-600 mb-4">
+        Enter the email address associated with this certificate to receive a verification link.
+      </p>
+      <div class="mb-4">
+        <label class="block text-sm font-medium text-slate-700 mb-1">Email Address</label>
+        <input 
+          type="email" 
+          name="email" 
+          required 
+          class="w-full border rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-orange-500"
+          placeholder="your.email@example.com"
+        />
+      </div>
+      <button 
+        type="submit" 
+        class="w-full bg-orange-500 text-white py-2 rounded-md font-semibold hover:bg-orange-600 transition"
+      >
+        Request Verification Link
+      </button>
+    </form>
+  {% endif %}
+  
+  <div class="mt-6 pt-6 border-t">
+    <a href="/verify/{{ cert.id }}" class="text-orange-500 hover:underline">View Certificate Details</a>
+  </div>
+</div>
+{% endblock %}
+

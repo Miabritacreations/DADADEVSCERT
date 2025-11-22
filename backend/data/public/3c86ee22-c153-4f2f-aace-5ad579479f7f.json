@@ -1,0 +1,11 @@
+{
+  "id": "3c86ee22-c153-4f2f-aace-5ad579479f7f",
+  "name": "Bridgit Nyambeka Gichana",
+  "cohort": "5",
+  "issued_at": "2025-11-21T11:08:09Z",
+  "revoked": false,
+  "signature": "qN04mHs2HYfe0lDWUj2KFocLW5/t7yOXdvB1n7TJPgOOiGJRGF202X298zbHt5YBmxmJYxVZQvx79YnTTGIeBA==",
+  "verify_url": "http://localhost:5000/verify/3c86ee22-c153-4f2f-aace-5ad579479f7f",
+  "linkedin_share_url": "https://www.linkedin.com/sharing/share-offsite/?url=http%3A%2F%2Flocalhost%3A5000%2Fverify%2F3c86ee22-c153-4f2f-aace-5ad579479f7f",
+  "ots_status": "disabled"
+}

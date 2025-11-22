@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+{% block title %}Certificate History{% endblock %}
+{% block content %}
+<div class="flex items-center justify-between mb-6">
+  <h1 class="text-3xl font-bold">Certificate history</h1>
+  <div class="flex items-center space-x-4">
+    <a href="/admin" class="text-sm text-orange-500">Back to dashboard</a>
+    <form method="post" action="/admin/logout" class="inline">
+      <button type="submit" class="text-sm text-slate-600 hover:text-orange-600">Logout</button>
+    </form>
+  </div>
+</div>
+<div class="bg-white border rounded-lg shadow-sm overflow-x-auto">
+  <table class="min-w-full text-sm">
+    <thead>
+      <tr class="text-left bg-slate-50">
+        <th class="px-4 py-3">Name</th>
+        <th class="px-4 py-3">Cohort</th>
+        <th class="px-4 py-3">Issued</th>
+        <th class="px-4 py-3">Status</th>
+        <th class="px-4 py-3">Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for cert in certificates %}
+      <tr class="border-t">
+        <td class="px-4 py-2">
+          <p class="font-semibold">{{ cert.name }}</p>
+          <p class="text-xs text-slate-500">{{ cert.id }}</p>
+        </td>
+        <td class="px-4 py-2">{{ cert.cohort }}</td>
+        <td class="px-4 py-2">{{ cert.issued_at }}</td>
+        <td class="px-4 py-2">
+          {% if cert.revoked %}
+            <span class="text-red-600 text-xs font-semibold">Revoked</span>
+            <p class="text-xs text-slate-500">Reason: {{ cert.revocation_reason }}</p>
+          {% else %}
+            <span class="text-green-600 text-xs font-semibold">Active</span>
+          {% endif %}
+        </td>
+        <td class="px-4 py-2">
+          {% if not cert.revoked %}
+          <form action="/admin/revoke/{{ cert.id }}" method="post" class="flex gap-2">
+            <input name="reason" placeholder="Reason" class="border rounded px-2 py-1 text-xs" />
+            <button class="text-xs text-white bg-red-500 px-3 py-1 rounded">Revoke</button>
+          </form>
+          {% else %}
+            <span class="text-xs text-slate-400">Already revoked</span>
+          {% endif %}
+        </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+{% endblock %}
+

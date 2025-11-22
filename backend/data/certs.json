@@ -1,0 +1,182 @@
+{
+  "348b6fe4-9fe5-438c-ac59-e8d6613e5ccb": {
+    "artifacts": {
+      "pdf_filename": "certificate-348b6fe4-9fe5-438c-ac59-e8d6613e5ccb.pdf"
+    },
+    "cohort": "5",
+    "email": "nyambekabridgit@gmail.com",
+    "id": "348b6fe4-9fe5-438c-ac59-e8d6613e5ccb",
+    "issued_at": "2025-11-22T22:19:54Z",
+    "linkedin_share_url": "https://www.linkedin.com/sharing/share-offsite/?url=http%3A%2F%2Flocalhost%3A5000%2Fverify%2F348b6fe4-9fe5-438c-ac59-e8d6613e5ccb",
+    "metadata": {},
+    "name": "Bridgit Nyambeka",
+    "ots_proof_path": "C:\\Users\\lenovo\\Desktop\\DADA DEV CERT\\backend\\data\\ots\\348b6fe4-9fe5-438c-ac59-e8d6613e5ccb.ots",
+    "ots_status": "disabled",
+    "public_payload_url": null,
+    "revocation_reason": null,
+    "revoked": false,
+    "revoked_at": null,
+    "signature": "xfETXM3iUsqvDLwod/fm6pjE59V3mtBH30UI7M1ad9diDaQz9akwAuWrNHqzEK09yaPeDjLCVxhO1VmjoSJ5BA==",
+    "verify_url": "http://localhost:5000/verify/348b6fe4-9fe5-438c-ac59-e8d6613e5ccb"
+  },
+  "43914c29-a46b-41b9-abb3-d19c9037d8f1": {
+    "artifacts": {
+      "pdf_filename": "certificate-43914c29-a46b-41b9-abb3-d19c9037d8f1.pdf"
+    },
+    "cohort": "5",
+    "email": null,
+    "id": "43914c29-a46b-41b9-abb3-d19c9037d8f1",
+    "issued_at": "2025-11-21T11:28:19Z",
+    "linkedin_share_url": "https://www.linkedin.com/sharing/share-offsite/?url=http%3A%2F%2Flocalhost%3A5000%2Fverify%2F43914c29-a46b-41b9-abb3-d19c9037d8f1",
+    "metadata": {},
+    "name": "Bridgit Nyambeka Gichana",
+    "ots_proof_path": "C:\\Users\\lenovo\\Desktop\\DADA DEV CERT\\backend\\data\\ots\\43914c29-a46b-41b9-abb3-d19c9037d8f1.ots",
+    "ots_status": "disabled",
+    "public_payload_url": null,
+    "revocation_reason": null,
+    "revoked": false,
+    "revoked_at": null,
+    "signature": "6DwHBrmF6vNvwhtAESyn5zzdBzcI3eLb2+rFyXe6TJELvaj1qsh/sKYEYyWPGa8QND7yAwfLqibEgqHtM0thCg==",
+    "verify_url": "http://localhost:5000/verify/43914c29-a46b-41b9-abb3-d19c9037d8f1"
+  },
+  "4d22cfd0-750a-41a1-9177-c4fff0de4a5e": {
+    "artifacts": {
+      "pdf_filename": "certificate-4d22cfd0-750a-41a1-9177-c4fff0de4a5e.pdf"
+    },
+    "cohort": "5",
+    "email": null,
+    "id": "4d22cfd0-750a-41a1-9177-c4fff0de4a5e",
+    "issued_at": "2025-11-22T22:29:22Z",
+    "linkedin_share_url": "https://www.linkedin.com/sharing/share-offsite/?url=http%3A%2F%2Flocalhost%3A5000%2Fverify%2F4d22cfd0-750a-41a1-9177-c4fff0de4a5e",
+    "metadata": {},
+    "name": "Bridgit Nyambeka",
+    "ots_proof_path": "C:\\Users\\lenovo\\Desktop\\DADA DEV CERT\\backend\\data\\ots\\4d22cfd0-750a-41a1-9177-c4fff0de4a5e.ots",
+    "ots_status": "disabled",
+    "public_payload_url": null,
+    "revocation_reason": null,
+    "revoked": false,
+    "revoked_at": null,
+    "signature": "BSEVSXTdvLgA2KIcg599voPT+qVmKUJcIv10C4+8yh4rIT7Am3q+Ttd4tKXEYhcA3X3rI4hcxrXVrnLmmo0MAg==",
+    "verify_url": "http://localhost:5000/verify/4d22cfd0-750a-41a1-9177-c4fff0de4a5e"
+  },
+  "6ab27eaa-9987-4568-8352-bfcefb43f9ee": {
+    "artifacts": {
+      "pdf_filename": "certificate-6ab27eaa-9987-4568-8352-bfcefb43f9ee.pdf"
+    },
+    "cohort": "5",
+    "email": null,
+    "id": "6ab27eaa-9987-4568-8352-bfcefb43f9ee",
+    "issued_at": "2025-11-21T11:18:07Z",
+    "linkedin_share_url": "https://www.linkedin.com/sharing/share-offsite/?url=http%3A%2F%2Flocalhost%3A5000%2Fverify%2F6ab27eaa-9987-4568-8352-bfcefb43f9ee",
+    "metadata": {},
+    "name": "Bridgit Nyambeka Gichana",
+    "ots_proof_path": "C:\\Users\\lenovo\\Desktop\\DADA DEV CERT\\backend\\data\\ots\\6ab27eaa-9987-4568-8352-bfcefb43f9ee.ots",
+    "ots_status": "disabled",
+    "public_payload_url": null,
+    "revocation_reason": null,
+    "revoked": false,
+    "revoked_at": null,
+    "signature": "yan7TnxFWudcurvEtQSp3BXYHd96hmxSzayk9eM47gGISuIPUgdfa793NJiol73eUz2w8n5BS7wZCzgLS2qwAw==",
+    "verify_url": "http://localhost:5000/verify/6ab27eaa-9987-4568-8352-bfcefb43f9ee"
+  },
+  "85fbcefd-aee9-4b9c-b545-e0744d89b262": {
+    "artifacts": {
+      "pdf_filename": "certificate-85fbcefd-aee9-4b9c-b545-e0744d89b262.pdf"
+    },
+    "cohort": "5",
+    "email": null,
+    "id": "85fbcefd-aee9-4b9c-b545-e0744d89b262",
+    "issued_at": "2025-11-21T11:23:15Z",
+    "linkedin_share_url": "https://www.linkedin.com/sharing/share-offsite/?url=http%3A%2F%2Flocalhost%3A5000%2Fverify%2F85fbcefd-aee9-4b9c-b545-e0744d89b262",
+    "metadata": {},
+    "name": "Bridgit Nyambeka Gichana",
+    "ots_proof_path": "C:\\Users\\lenovo\\Desktop\\DADA DEV CERT\\backend\\data\\ots\\85fbcefd-aee9-4b9c-b545-e0744d89b262.ots",
+    "ots_status": "disabled",
+    "public_payload_url": null,
+    "revocation_reason": null,
+    "revoked": false,
+    "revoked_at": null,
+    "signature": "Hio1hi62j+rJiOIz7LVSld0JWIZhkdEQFZp+14agi3wJ0SOFRj0loUPXoCFe5UAseB6nylBBtGvLdObtCANqAg==",
+    "verify_url": "http://localhost:5000/verify/85fbcefd-aee9-4b9c-b545-e0744d89b262"
+  },
+  "8fb3c74f-263b-4613-8b68-d9b508094a58": {
+    "artifacts": {
+      "pdf_filename": "certificate-8fb3c74f-263b-4613-8b68-d9b508094a58.pdf"
+    },
+    "cohort": "5",
+    "email": null,
+    "id": "8fb3c74f-263b-4613-8b68-d9b508094a58",
+    "issued_at": "2025-11-21T11:37:56Z",
+    "linkedin_share_url": "https://www.linkedin.com/sharing/share-offsite/?url=http%3A%2F%2Flocalhost%3A5000%2Fverify%2F8fb3c74f-263b-4613-8b68-d9b508094a58",
+    "metadata": {},
+    "name": "Bridgit Nyambeka Gichana",
+    "ots_proof_path": "C:\\Users\\lenovo\\Desktop\\DADA DEV CERT\\backend\\data\\ots\\8fb3c74f-263b-4613-8b68-d9b508094a58.ots",
+    "ots_status": "disabled",
+    "public_payload_url": null,
+    "revocation_reason": null,
+    "revoked": false,
+    "revoked_at": null,
+    "signature": "S+li+241ij98j74gVMEpuglMtagQxWqiS5gMOc3gaO96wMvO2h5myh5xITS5E2ba7oNStNtFPaizn3UXZcaSAQ==",
+    "verify_url": "http://localhost:5000/verify/8fb3c74f-263b-4613-8b68-d9b508094a58"
+  },
+  "ba210698-8109-419a-8024-db0fbca94c67": {
+    "artifacts": {
+      "pdf_filename": "certificate-ba210698-8109-419a-8024-db0fbca94c67.pdf"
+    },
+    "cohort": "5",
+    "email": null,
+    "id": "ba210698-8109-419a-8024-db0fbca94c67",
+    "issued_at": "2025-11-21T11:14:18Z",
+    "linkedin_share_url": "https://www.linkedin.com/sharing/share-offsite/?url=http%3A%2F%2Flocalhost%3A5000%2Fverify%2Fba210698-8109-419a-8024-db0fbca94c67",
+    "metadata": {},
+    "name": "Bridgit Nyambeka Gichana",
+    "ots_proof_path": "C:\\Users\\lenovo\\Desktop\\DADA DEV CERT\\backend\\data\\ots\\ba210698-8109-419a-8024-db0fbca94c67.ots",
+    "ots_status": "disabled",
+    "public_payload_url": null,
+    "revocation_reason": null,
+    "revoked": false,
+    "revoked_at": null,
+    "signature": "5oKg67Ntg3wpJk84Y4YqVIEkkoHPNyp+Lfjz4gkfZHX1s1Nhl7o81bCOmHiiiGV/QKapVr/g0YMTuBxShtQxCw==",
+    "verify_url": "http://localhost:5000/verify/ba210698-8109-419a-8024-db0fbca94c67"
+  },
+  "bef5c7f7-0030-4a99-b788-6a3e57c24a11": {
+    "artifacts": {
+      "pdf_filename": "certificate-bef5c7f7-0030-4a99-b788-6a3e57c24a11.pdf"
+    },
+    "cohort": "5",
+    "email": null,
+    "id": "bef5c7f7-0030-4a99-b788-6a3e57c24a11",
+    "issued_at": "2025-11-22T22:06:37Z",
+    "linkedin_share_url": "https://www.linkedin.com/sharing/share-offsite/?url=http%3A%2F%2Flocalhost%3A5000%2Fverify%2Fbef5c7f7-0030-4a99-b788-6a3e57c24a11",
+    "metadata": {},
+    "name": "Bridgit Nyambeka",
+    "ots_proof_path": "C:\\Users\\lenovo\\Desktop\\DADA DEV CERT\\backend\\data\\ots\\bef5c7f7-0030-4a99-b788-6a3e57c24a11.ots",
+    "ots_status": "disabled",
+    "public_payload_url": null,
+    "revocation_reason": null,
+    "revoked": false,
+    "revoked_at": null,
+    "signature": "mDtu7SEZgck3ceb5TaSimocui9rvHEQiqF4RqhpA/BNa2nBLyrcv1ah+vE0D7f3QosMzdTxU5aGQJ9hbXF5GBg==",
+    "verify_url": "http://localhost:5000/verify/bef5c7f7-0030-4a99-b788-6a3e57c24a11"
+  },
+  "f2071413-3c9f-43ec-a8bf-a941488edc8e": {
+    "artifacts": {
+      "pdf_filename": "certificate-f2071413-3c9f-43ec-a8bf-a941488edc8e.pdf"
+    },
+    "cohort": "5",
+    "email": null,
+    "id": "f2071413-3c9f-43ec-a8bf-a941488edc8e",
+    "issued_at": "2025-11-21T11:32:43Z",
+    "linkedin_share_url": "https://www.linkedin.com/sharing/share-offsite/?url=http%3A%2F%2Flocalhost%3A5000%2Fverify%2Ff2071413-3c9f-43ec-a8bf-a941488edc8e",
+    "metadata": {},
+    "name": "Bridgit Nyambeka Gichana",
+    "ots_proof_path": "C:\\Users\\lenovo\\Desktop\\DADA DEV CERT\\backend\\data\\ots\\f2071413-3c9f-43ec-a8bf-a941488edc8e.ots",
+    "ots_status": "disabled",
+    "public_payload_url": null,
+    "revocation_reason": null,
+    "revoked": false,
+    "revoked_at": null,
+    "signature": "q/Wdws87N8oMa0MF0bCAk8q7wf5+fjnWwlLpVl1gApued4Cw5Uh9l2cvLpcVMvADAFgeh69R9RApO7XbPLTvBg==",
+    "verify_url": "http://localhost:5000/verify/f2071413-3c9f-43ec-a8bf-a941488edc8e"
+  }
+}
