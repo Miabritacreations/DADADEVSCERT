@@ -1,0 +1,11 @@
+{
+  "id": "df0785a8-70e5-461e-983e-0bab4a600772",
+  "name": "Bridgit Nyambeka",
+  "cohort": "5",
+  "issued_at": "2025-11-24T08:31:23Z",
+  "revoked": false,
+  "signature": "yAFV0BaqgnrPqGE8nNjG2Yk1rBlD3yPwCv7wgL3RR0mCTM92n9iYdZSHKNVBLg4vruABNmkDL0QSt5aMMr7BDQ==",
+  "verify_url": "http://localhost:5000/verify/df0785a8-70e5-461e-983e-0bab4a600772",
+  "linkedin_share_url": "https://www.linkedin.com/sharing/share-offsite/?url=http%3A%2F%2Flocalhost%3A5000%2Fverify%2Fdf0785a8-70e5-461e-983e-0bab4a600772",
+  "ots_status": "disabled"
+}

@@ -159,6 +159,26 @@
     "signature": "mDtu7SEZgck3ceb5TaSimocui9rvHEQiqF4RqhpA/BNa2nBLyrcv1ah+vE0D7f3QosMzdTxU5aGQJ9hbXF5GBg==",
     "verify_url": "http://localhost:5000/verify/bef5c7f7-0030-4a99-b788-6a3e57c24a11"
   },
+  "df0785a8-70e5-461e-983e-0bab4a600772": {
+    "artifacts": {
+      "pdf_filename": "certificate-df0785a8-70e5-461e-983e-0bab4a600772.pdf"
+    },
+    "cohort": "5",
+    "email": null,
+    "id": "df0785a8-70e5-461e-983e-0bab4a600772",
+    "issued_at": "2025-11-24T08:31:23Z",
+    "linkedin_share_url": "https://www.linkedin.com/sharing/share-offsite/?url=http%3A%2F%2Flocalhost%3A5000%2Fverify%2Fdf0785a8-70e5-461e-983e-0bab4a600772",
+    "metadata": {},
+    "name": "Bridgit Nyambeka",
+    "ots_proof_path": "C:\\Users\\dell\\DADA\\DADADEVSCERT\\backend\\data\\ots\\df0785a8-70e5-461e-983e-0bab4a600772.ots",
+    "ots_status": "disabled",
+    "public_payload_url": null,
+    "revocation_reason": null,
+    "revoked": false,
+    "revoked_at": null,
+    "signature": "yAFV0BaqgnrPqGE8nNjG2Yk1rBlD3yPwCv7wgL3RR0mCTM92n9iYdZSHKNVBLg4vruABNmkDL0QSt5aMMr7BDQ==",
+    "verify_url": "http://localhost:5000/verify/df0785a8-70e5-461e-983e-0bab4a600772"
+  },
   "f2071413-3c9f-43ec-a8bf-a941488edc8e": {
     "artifacts": {
       "pdf_filename": "certificate-f2071413-3c9f-43ec-a8bf-a941488edc8e.pdf"
