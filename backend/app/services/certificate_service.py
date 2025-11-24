@@ -3,7 +3,7 @@ from __future__ import annotations
 import csv
 import io
 import uuid
-from typing import Dict, List, Tuple
+from typing import Dict, List, Optional, Tuple
 
 from backend.app.services.ipfs_service import IPFSService
 from backend.app.services.linkedin_service import LinkedInService
@@ -64,19 +64,79 @@ class CertificateService:
         self.store.save_certificate(cert)
         return cert, pdf_buffer.getvalue()
 
-    def bulk_issue(self, csv_bytes: bytes) -> List[Dict]:
+    def request_issue(
+        self,
+        name: str,
+        cohort: str,
+        email: str | None = None,
+        metadata: Optional[Dict] = None,
+        requested_by: Optional[str] = None,
+        source: str = "manual",
+    ) -> Dict:
+        request_id = str(uuid.uuid4())
+        request = {
+            "request_id": request_id,
+            "name": name,
+            "cohort": cohort or "unspecified",
+            "email": email,
+            "metadata": metadata or {},
+            "status": "pending",
+            "requested_at": utc_now_iso(),
+            "requested_by": requested_by,
+            "source": source,
+        }
+        return self.store.save_request(request)
+
+    def bulk_request_issue(self, csv_bytes: bytes, requested_by: Optional[str] = None) -> List[Dict]:
         buffer = io.StringIO(csv_bytes.decode("utf-8"))
         reader = csv.DictReader(buffer)
-        issued = []
+        requests: List[Dict] = []
         for row in reader:
             name = row.get("name")
             cohort = row.get("cohort", "unspecified")
             email = row.get("email")
             if not name:
                 continue
-            cert, _ = self.issue(name=name, cohort=cohort, email=email)
-            issued.append(cert)
-        return issued
+            req = self.request_issue(
+                name=name,
+                cohort=cohort,
+                email=email,
+                metadata={"source_row": row},
+                requested_by=requested_by,
+                source="bulk",
+            )
+            requests.append(req)
+        return requests
+
+    def list_requests(self, status: Optional[str] = None) -> List[Dict]:
+        return self.store.list_requests(status)
+
+    def approve_request(self, request_id: str, approver: Optional[str] = None) -> Optional[Tuple[Dict, bytes]]:
+        request = self.store.get_request(request_id)
+        if not request or request.get("status") != "pending":
+            return None
+        cert, pdf_bytes = self.issue(
+            name=request.get("name", ""),
+            cohort=request.get("cohort", "unspecified"),
+            email=request.get("email"),
+            metadata=request.get("metadata"),
+        )
+        request["status"] = "approved"
+        request["approved_at"] = utc_now_iso()
+        request["approved_by"] = approver
+        request["certificate_id"] = cert["id"]
+        self.store.save_request(request)
+        return cert, pdf_bytes
+
+    def reject_request(self, request_id: str, reviewer: Optional[str] = None, reason: str | None = None) -> Optional[Dict]:
+        request = self.store.get_request(request_id)
+        if not request or request.get("status") != "pending":
+            return None
+        request["status"] = "rejected"
+        request["reviewed_at"] = utc_now_iso()
+        request["approved_by"] = reviewer
+        request["rejection_reason"] = reason or "No reason provided"
+        return self.store.save_request(request)
 
     def revoke(self, cert_id: str, reason: str) -> Dict | None:
         cert = self.store.get_certificate(cert_id)

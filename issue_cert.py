@@ -39,7 +39,7 @@ if resp.status_code == 200 and 'application/pdf' in content_type:
         f.write(resp.content)
     print(f"✅ Certificate PDF saved to: {out}")
 
-elif resp.status_code == 200:
+elif resp.status_code in (200, 202):
     # JSON fallback
     try:
         data = resp.json()
@@ -48,10 +48,19 @@ elif resp.status_code == 200:
         print(resp.text)
         sys.exit(1)
 
-    print("📝 Server returned JSON (PDF generation disabled?):")
-    print(data)
-    if "verify_url" in data:
-        print("🔗 Verify at:", data["verify_url"])
+    status = data.get("status")
+    if status == "pending":
+        req = data.get("request", {})
+        print("⏳ Certificate request queued for admin approval.")
+        if req:
+            print(f"   request_id: {req.get('request_id')}")
+            print(f"   learner: {req.get('name')}  cohort: {req.get('cohort')}")
+            print("   Wait for an admin to approve and release the PDF.")
+    else:
+        print("📝 Server returned JSON response:")
+        print(data)
+        if "verify_url" in data:
+            print("🔗 Verify at:", data["verify_url"])
 
 else:
     print(f"❌ Error {resp.status_code} from server:")

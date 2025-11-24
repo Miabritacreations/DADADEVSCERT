@@ -43,10 +43,8 @@ This repository hosts the working MVP requested in the DADA DEVS MVP Challenge. 
    ```
 3. Open `http://localhost:5000/admin`.  
 4. Fill in the single-issue form: name, cohort, email, optional notes.  
-5. Click “Issue Certificate”. The system:
-   - Generates `cert_id`, Ed25519 signature, and optional OpenTimestamps proof.
-   - Creates a PDF stored under `backend/data/certs/<cert_id>.pdf`.
-   - Updates `certs.json` for tracking and revocation.
+5. Click “Submit for approval”. The system queues the request for admin review (stored in `backend/data/cert_requests.json`).  
+6. Approve from the “Pending approvals” table to generate the signed PDF, metadata, and Bitcoin proof. Approved certificates are stored in `backend/data/certs.json`.
 
 ## Steps to Verify a Certificate
 
@@ -88,7 +86,7 @@ This repository hosts the working MVP requested in the DADA DEVS MVP Challenge. 
 | Tamper-proof digital signature     | Ed25519 signatures + optional OpenTimestamps |
 | Signature embedded in certificate  | Signature preview & metadata block + QR code |
 | QR code verification               | QR leads to `/verify/<id>` with real-time validation |
-| Simple issuance flow               | Flask admin dashboard with single/bulk issuance |
+| Simple issuance flow               | Form submits to approval queue, dashboard approvals finalize issuance |
 
 **Bonus features included:** revocation workflow, issuance history, IPFS publishing hooks, and a refreshed certificate design with logos, signature section, and verification QR as requested.
 

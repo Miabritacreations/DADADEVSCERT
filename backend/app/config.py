@@ -12,6 +12,7 @@ class Settings:
     STATIC_STORAGE = DATA_DIR / "artifacts"
 
     CERT_DB_PATH = DATA_DIR / "certs.json"
+    CERT_REQUEST_DB_PATH = DATA_DIR / "cert_requests.json"
     PUBLIC_PAYLOAD_DIR = DATA_DIR / "public"
 
     BASE_URL = os.environ.get("BASE_URL", "http://localhost:5000")

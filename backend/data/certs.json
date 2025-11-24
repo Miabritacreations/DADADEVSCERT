@@ -1,4 +1,24 @@
 {
+  "17998a80-5e27-4e30-8f1d-91b4557c7df0": {
+    "artifacts": {
+      "pdf_filename": "certificate-17998a80-5e27-4e30-8f1d-91b4557c7df0.pdf"
+    },
+    "cohort": "2",
+    "email": "nyambekabridgit@gmail.com",
+    "id": "17998a80-5e27-4e30-8f1d-91b4557c7df0",
+    "issued_at": "2025-11-24T11:05:03Z",
+    "linkedin_share_url": "https://www.linkedin.com/sharing/share-offsite/?url=http%3A%2F%2Flocalhost%3A5000%2Fverify%2F17998a80-5e27-4e30-8f1d-91b4557c7df0",
+    "metadata": {},
+    "name": "Bridgit Nyambeka",
+    "ots_proof_path": "C:\\Users\\dell\\DADA\\DADADEVSCERT\\backend\\data\\ots\\17998a80-5e27-4e30-8f1d-91b4557c7df0.ots",
+    "ots_status": "disabled",
+    "public_payload_url": null,
+    "revocation_reason": null,
+    "revoked": false,
+    "revoked_at": null,
+    "signature": "WGwCHETUaoSuEoE95xx2wcuvVkNYZTmbmylvqV4rlRItTCRlDPgEL6kn4RodgLPZuEUmR/6RUQRphhLWcyzaDA==",
+    "verify_url": "http://localhost:5000/verify/17998a80-5e27-4e30-8f1d-91b4557c7df0"
+  },
   "348b6fe4-9fe5-438c-ac59-e8d6613e5ccb": {
     "artifacts": {
       "pdf_filename": "certificate-348b6fe4-9fe5-438c-ac59-e8d6613e5ccb.pdf"

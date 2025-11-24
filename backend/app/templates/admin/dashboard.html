@@ -7,7 +7,7 @@
     <button type="submit" class="text-sm text-slate-600 hover:text-orange-600">Logout</button>
   </form>
 </div>
-<div class="grid md:grid-cols-3 gap-4 mb-8">
+<div class="grid md:grid-cols-4 gap-4 mb-8">
   <div class="bg-white border rounded-lg p-4 shadow-sm">
     <p class="text-sm text-slate-500">Total issued</p>
     <p class="text-3xl font-semibold">{{ stats.total }}</p>
@@ -19,6 +19,10 @@
   <div class="bg-white border rounded-lg p-4 shadow-sm">
     <p class="text-sm text-slate-500">Revoked</p>
     <p class="text-3xl font-semibold text-red-600">{{ stats.revoked }}</p>
+  </div>
+  <div class="bg-white border rounded-lg p-4 shadow-sm">
+    <p class="text-sm text-slate-500">Pending approvals</p>
+    <p class="text-3xl font-semibold text-orange-500">{{ stats.pending }}</p>
   </div>
 </div>
 <div class="grid md:grid-cols-2 gap-6">
@@ -81,6 +85,52 @@
         {% endfor %}
       </tbody>
     </table>
+  </div>
+</section>
+<section class="mt-10">
+  <div class="flex justify-between items-center mb-3">
+    <h2 class="text-xl font-semibold">Pending approvals</h2>
+    {% if pending_requests|length == 0 %}
+      <span class="text-sm text-slate-500">No pending items</span>
+    {% endif %}
+  </div>
+  <div class="bg-white border rounded-lg shadow-sm overflow-x-auto">
+    {% if pending_requests %}
+    <table class="min-w-full text-sm">
+      <thead>
+        <tr class="text-left bg-slate-50">
+          <th class="px-4 py-2">Name</th>
+          <th class="px-4 py-2">Cohort</th>
+          <th class="px-4 py-2">Requested</th>
+          <th class="px-4 py-2">Requested by</th>
+          <th class="px-4 py-2 text-right">Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for req in pending_requests %}
+        <tr class="border-t">
+          <td class="px-4 py-2 font-semibold">{{ req.name }}</td>
+          <td class="px-4 py-2">{{ req.cohort }}</td>
+          <td class="px-4 py-2">{{ req.requested_at }}</td>
+          <td class="px-4 py-2">{{ req.requested_by or 'N/A' }}</td>
+          <td class="px-4 py-2">
+            <div class="flex justify-end gap-2">
+              <form method="post" action="/admin/requests/{{ req.request_id }}/approve">
+                <button class="bg-green-500 text-white text-xs px-3 py-1 rounded-md">Approve & download</button>
+              </form>
+              <form method="post" action="/admin/requests/{{ req.request_id }}/reject">
+                <input type="hidden" name="reason" value="Rejected from dashboard" />
+                <button class="bg-red-100 text-red-700 text-xs px-3 py-1 rounded-md border border-red-200">Reject</button>
+              </form>
+            </div>
+          </td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+    {% else %}
+      <p class="px-4 py-8 text-center text-slate-500 text-sm">All caught up! No pending certificate requests.</p>
+    {% endif %}
   </div>
 </section>
 {% endblock %}

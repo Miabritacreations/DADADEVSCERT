@@ -1,0 +1,48 @@
+{
+  "6273a2e2-5ec9-4ac8-9b3f-34de0e55274d": {
+    "approved_by": "admin",
+    "cohort": "2",
+    "email": null,
+    "metadata": {
+      "source": "public_demo"
+    },
+    "name": "Solomon Ndegwa",
+    "rejection_reason": "Rejected from dashboard",
+    "request_id": "6273a2e2-5ec9-4ac8-9b3f-34de0e55274d",
+    "requested_at": "2025-11-24T10:58:52Z",
+    "requested_by": "public_web",
+    "reviewed_at": "2025-11-24T11:04:56Z",
+    "source": "public_web",
+    "status": "rejected"
+  },
+  "822eb741-0ecb-471a-97a8-199c1cb1b160": {
+    "approved_at": "2025-11-24T11:05:03Z",
+    "approved_by": "admin",
+    "certificate_id": "17998a80-5e27-4e30-8f1d-91b4557c7df0",
+    "cohort": "2",
+    "email": "nyambekabridgit@gmail.com",
+    "metadata": {},
+    "name": "Bridgit Nyambeka",
+    "request_id": "822eb741-0ecb-471a-97a8-199c1cb1b160",
+    "requested_at": "2025-11-24T11:04:45Z",
+    "requested_by": "admin",
+    "source": "admin_form",
+    "status": "approved"
+  },
+  "f4e98fde-3ddb-481f-977e-eacf1f4c0219": {
+    "approved_by": "admin",
+    "cohort": "2",
+    "email": null,
+    "metadata": {
+      "source": "public_demo"
+    },
+    "name": "Solomon Ndegwa",
+    "rejection_reason": "Rejected from dashboard",
+    "request_id": "f4e98fde-3ddb-481f-977e-eacf1f4c0219",
+    "requested_at": "2025-11-24T10:58:42Z",
+    "requested_by": "public_web",
+    "reviewed_at": "2025-11-24T11:04:59Z",
+    "source": "public_web",
+    "status": "rejected"
+  }
+}

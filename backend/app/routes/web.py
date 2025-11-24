@@ -3,7 +3,7 @@ from __future__ import annotations
 import io
 from pathlib import Path
 
-from flask import abort, jsonify, render_template, request, send_file
+from flask import abort, flash, jsonify, redirect, render_template, request, send_file, url_for
 
 from backend.app.config import settings
 
@@ -24,18 +24,28 @@ def init_web_routes(service: CertificateService) -> None:
 
     @web_bp.route("/issue", methods=["POST"])
     def public_issue():
-        data = request.form or request.get_json(force=True)
+        data = request.form.to_dict() if request.form else (request.get_json(force=True) or {})
         name = data.get("name")
         cohort = data.get("cohort", "unspecified")
         if not name:
             return jsonify({"error": "name required"}), 400
-        cert, pdf_bytes = service.issue(name=name, cohort=cohort)
-        return send_file(
-            io.BytesIO(pdf_bytes),
-            as_attachment=True,
-            download_name=f"certificate-{cert['id']}.pdf",
-            mimetype="application/pdf",
+        req = service.request_issue(
+            name=name,
+            cohort=cohort,
+            email=data.get("email"),
+            metadata={"source": "public_demo"},
+            requested_by=data.get("email") or "public_web",
+            source="public_web",
         )
+        payload = {
+            "status": "pending",
+            "message": "Certificate request recorded. An admin must approve it before issuance.",
+            "request": req,
+        }
+        if request.is_json:
+            return jsonify(payload), 202
+        flash("Request submitted. An admin will approve and release the certificate shortly.", "info")
+        return redirect(url_for("web.landing"))
 
     @web_bp.route("/verify", methods=["GET"])
     def verify_form():

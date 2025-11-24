@@ -9,9 +9,11 @@ from backend.app.config import settings
 
 
 class CertificateStore:
-    def __init__(self, db_path: Path = settings.CERT_DB_PATH):
+    def __init__(self, db_path: Path = settings.CERT_DB_PATH, request_path: Path = settings.CERT_REQUEST_DB_PATH):
         self.db_path = db_path
+        self.request_path = request_path
         self.db_path.parent.mkdir(parents=True, exist_ok=True)
+        self.request_path.parent.mkdir(parents=True, exist_ok=True)
         self._lock = Lock()
 
     def _read(self) -> Dict[str, Dict]:
@@ -54,4 +56,42 @@ class CertificateStore:
             data[cert_id] = cert
             self._write(data)
             return cert
+
+    def _read_requests(self) -> Dict[str, Dict]:
+        if not self.request_path.exists():
+            return {}
+        with self.request_path.open("r", encoding="utf-8") as handle:
+            try:
+                return json.load(handle)
+            except json.JSONDecodeError:
+                return {}
+
+    def _write_requests(self, data: Dict[str, Dict]) -> None:
+        with self.request_path.open("w", encoding="utf-8") as handle:
+            json.dump(data, handle, indent=2, sort_keys=True)
+
+    def list_requests(self, status: Optional[str] = None) -> List[Dict]:
+        with self._lock:
+            requests = list(self._read_requests().values())
+        if status:
+            requests = [req for req in requests if req.get("status") == status]
+        return sorted(requests, key=lambda r: r.get("requested_at", ""), reverse=True)
+
+    def get_request(self, request_id: str) -> Optional[Dict]:
+        with self._lock:
+            return self._read_requests().get(request_id)
+
+    def save_request(self, request: Dict) -> Dict:
+        with self._lock:
+            data = self._read_requests()
+            data[request["request_id"]] = request
+            self._write_requests(data)
+        return request
+
+    def delete_request(self, request_id: str) -> None:
+        with self._lock:
+            data = self._read_requests()
+            if request_id in data:
+                del data[request_id]
+                self._write_requests(data)
 

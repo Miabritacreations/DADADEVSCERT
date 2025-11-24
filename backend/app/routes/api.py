@@ -15,16 +15,23 @@ def init_api_routes(service: CertificateService) -> None:
         email = payload.get("email")
         if not name:
             return jsonify({"error": "name required"}), 400
-        cert, _ = service.issue(name=name, cohort=cohort, email=email, metadata=payload.get("metadata"))
-        return jsonify({"certificate": cert}), 201
+        request_record = service.request_issue(
+            name=name,
+            cohort=cohort,
+            email=email,
+            metadata=payload.get("metadata"),
+            requested_by="api",
+            source="api",
+        )
+        return jsonify({"status": "pending", "request": request_record}), 202
 
     @api_bp.route("/certificates/bulk", methods=["POST"])
     def api_bulk_issue():
         csv_content = request.files.get("file")
         if not csv_content:
             return jsonify({"error": "CSV file required"}), 400
-        issued = service.bulk_issue(csv_content.read())
-        return jsonify({"issued": len(issued), "certificates": issued}), 201
+        requests_created = service.bulk_request_issue(csv_content.read(), requested_by="api")
+        return jsonify({"queued": len(requests_created), "requests": requests_created}), 202
 
     @api_bp.route("/certificates/<cert_id>", methods=["GET"])
     def api_get_cert(cert_id: str):
