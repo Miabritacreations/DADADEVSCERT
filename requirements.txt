@@ -4,5 +4,5 @@ reportlab==4.0.9
 qrcode==7.4.2
 Pillow==10.3.0
 requests==2.32.2
-opentimestamps==0.7.0
+opentimestamps==0.4.5
 
