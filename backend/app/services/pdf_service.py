@@ -115,25 +115,22 @@ class PDFService:
         c.line(left_sig_x, sig_base_y, left_sig_x + sig_width, sig_base_y)
         c.line(right_sig_x, sig_base_y, right_sig_x + sig_width, sig_base_y)
 
-        c.setFont("Helvetica-Bold", 10)
-        c.setFillColor(self.charcoal)
-        left_name = (left_signatory or "")
-        right_name = (right_signatory or "DADA DEVS COUNCIL")
-        if left_name:
-            c.drawCentredString(left_sig_x + sig_width / 2, sig_base_y - 16, left_name.upper())
-        c.setFont("Helvetica", 9)
-        if left_title:
-            c.drawCentredString(left_sig_x + sig_width / 2, sig_base_y - 32, left_title)
+        self._draw_signatory_block(
+            c,
+            left_sig_x + sig_width / 2,
+            sig_base_y - 16,
+            left_signatory,
+            left_title
+        )
+        self._draw_signatory_block(
+            c,
+            right_sig_x + sig_width / 2,
+            sig_base_y - 16,
+            right_signatory or "DADA DEVS COUNCIL",
+            right_title or "Program Leadership"
+        )
 
-        c.setFont("Helvetica-Bold", 10)
-        c.drawCentredString(right_sig_x + sig_width / 2, sig_base_y - 16, right_name.upper())
-        c.setFont("Helvetica", 9)
-        if right_title:
-            c.drawCentredString(right_sig_x + sig_width / 2, sig_base_y - 32, right_title)
-        else:
-            c.drawCentredString(right_sig_x + sig_width / 2, sig_base_y - 32, "Program Leadership")
-
-        # QR + verification info below signatures
+        # QR (bottom-right, minimal)
         verify_url = f"{self.base_url}/verify/{cert.get('id','') if cert.get('id') else ''}"
         qr = qrcode.QRCode(box_size=5, border=1)
         qr.add_data(verify_url)
@@ -142,23 +139,15 @@ class PDFService:
         qr.make_image(fill_color="black", back_color="white").save(qr_buffer, format="PNG")
         qr_buffer.seek(0)
         qr_reader = ImageReader(qr_buffer)
-        qr_size = 90
-        qr_center_x = width / 2
-        qr_y = sig_base_y - 120
-        c.drawImage(qr_reader, qr_center_x - qr_size / 2, qr_y, width=qr_size, height=qr_size)
-
-        c.setFont("Helvetica-Bold", 9)
-        c.setFillColor(self.charcoal)
-        c.drawCentredString(qr_center_x, qr_y - 14, "Scan to verify certificate authenticity")
-        c.setFont("Helvetica", 8)
-        signature_preview = cert.get("signature", "")[:30] if cert.get("signature") else ""
-        cert_id_preview = cert.get("id", "")[:22] if cert.get("id") else ""
-        c.drawCentredString(qr_center_x, qr_y - 28, (signature_preview + "…") if signature_preview else "-")
-        c.drawCentredString(qr_center_x, qr_y - 42, (f"Certificate ID: {cert_id_preview}…") if cert_id_preview else "Certificate ID: -")
-
-        c.setFont("Helvetica", 8)
-        c.setFillColor(self.text_muted)
-        c.drawCentredString(qr_center_x, qr_y - 56, "Bitcoin anchoring • IPFS payload • Revocation aware")
+        qr_size = 70
+        qr_right = width - margin - 40
+        qr_bottom = margin + 20
+        c.setFillColor(self.border_muted)
+        c.roundRect(qr_right - qr_size - 14, qr_bottom - 14, qr_size + 28, qr_size + 28, 10, fill=1, stroke=0)
+        c.setStrokeColor(self.deep_red)
+        c.setLineWidth(0.6)
+        c.roundRect(qr_right - qr_size - 14, qr_bottom - 14, qr_size + 28, qr_size + 28, 10, stroke=1, fill=0)
+        c.drawImage(qr_reader, qr_right - qr_size, qr_bottom, width=qr_size, height=qr_size)
 
         # Footer provenance line
         c.setFont("Helvetica", 9)
@@ -196,6 +185,33 @@ class PDFService:
         # Text: "₿UIDL 4 AFRICA" (with Bitcoin symbol)
         c.setFont("Helvetica-Bold", 11)
         c.drawString(x + tag_size * 1.3, y - 24, "₿UIDL 4 AFRICA")
+
+    def _draw_signatory_block(self, c: canvas.Canvas, center_x: float, start_y: float, names, title: Optional[str]):
+        """Render one or multiple signatory names stacked neatly above the title."""
+        lines = self._normalize_name_lines(names)
+        c.setFillColor(self.charcoal)
+        c.setFont("Helvetica-Bold", 10)
+        current_y = start_y
+        for line in lines:
+            c.drawCentredString(center_x, current_y, line)
+            current_y -= 14
+        if title:
+            c.setFont("Helvetica", 9)
+            c.drawCentredString(center_x, current_y - 4, title)
+
+    @staticmethod
+    def _normalize_name_lines(raw) -> List[str]:
+        """Allow comma, slash, pipe, or newline separated names to display on their own rows."""
+        if not raw:
+            return []
+        if isinstance(raw, (list, tuple)):
+            parts = [str(item).strip() for item in raw if str(item).strip()]
+        else:
+            text = str(raw)
+            for sep in ["/", "|", ","]:
+                text = text.replace(sep, "\n")
+            parts = [seg.strip() for seg in text.splitlines() if seg.strip()]
+        return [part.upper() for part in parts] or []
 
     @staticmethod
     def _wrap_lines(text: str, width: int) -> List[str]:

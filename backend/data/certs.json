@@ -79,6 +79,26 @@
     "signature": "CMNE4jwpz+ZmL2ckIWDN9AfHKKPVSqjCp+QX1qdczudix8AinyGzAeHpgeYBf2dAnk0vdI0LgAMviwgooYcpCQ==",
     "verify_url": "http://localhost:5000/verify/4f6ae136-b6ae-4c19-b6ff-85deb4f82d14"
   },
+  "5c196950-05b4-4284-9a5f-4ed4ce939be6": {
+    "artifacts": {
+      "pdf_filename": "certificate-5c196950-05b4-4284-9a5f-4ed4ce939be6.pdf"
+    },
+    "cohort": "2",
+    "email": null,
+    "id": "5c196950-05b4-4284-9a5f-4ed4ce939be6",
+    "issued_at": "2025-11-24T10:36:53Z",
+    "linkedin_share_url": "https://www.linkedin.com/sharing/share-offsite/?url=http%3A%2F%2Flocalhost%3A5000%2Fverify%2F5c196950-05b4-4284-9a5f-4ed4ce939be6",
+    "metadata": {},
+    "name": "Bridgit Nyambeka",
+    "ots_proof_path": "C:\\Users\\dell\\DADA\\DADADEVSCERT\\backend\\data\\ots\\5c196950-05b4-4284-9a5f-4ed4ce939be6.ots",
+    "ots_status": "disabled",
+    "public_payload_url": null,
+    "revocation_reason": null,
+    "revoked": false,
+    "revoked_at": null,
+    "signature": "d3NzHuoseknZ1p+dQZxI0jq+vbF7wjpqLpn0OwAyysF45cFAeW0T0HMk8VrDIpUG1DolnwHzHg+hPActfhJXCA==",
+    "verify_url": "http://localhost:5000/verify/5c196950-05b4-4284-9a5f-4ed4ce939be6"
+  },
   "6ab27eaa-9987-4568-8352-bfcefb43f9ee": {
     "artifacts": {
       "pdf_filename": "certificate-6ab27eaa-9987-4568-8352-bfcefb43f9ee.pdf"
@@ -138,6 +158,46 @@
     "revoked_at": null,
     "signature": "S+li+241ij98j74gVMEpuglMtagQxWqiS5gMOc3gaO96wMvO2h5myh5xITS5E2ba7oNStNtFPaizn3UXZcaSAQ==",
     "verify_url": "http://localhost:5000/verify/8fb3c74f-263b-4613-8b68-d9b508094a58"
+  },
+  "aa0511f9-01c9-4225-91f8-1ea6410865ce": {
+    "artifacts": {
+      "pdf_filename": "certificate-aa0511f9-01c9-4225-91f8-1ea6410865ce.pdf"
+    },
+    "cohort": "unspecified",
+    "email": null,
+    "id": "aa0511f9-01c9-4225-91f8-1ea6410865ce",
+    "issued_at": "2025-11-24T10:26:43Z",
+    "linkedin_share_url": "https://www.linkedin.com/sharing/share-offsite/?url=http%3A%2F%2Flocalhost%3A5000%2Fverify%2Faa0511f9-01c9-4225-91f8-1ea6410865ce",
+    "metadata": {},
+    "name": "Solomon Ndegwa",
+    "ots_proof_path": "C:\\Users\\dell\\DADA\\DADADEVSCERT\\backend\\data\\ots\\aa0511f9-01c9-4225-91f8-1ea6410865ce.ots",
+    "ots_status": "disabled",
+    "public_payload_url": null,
+    "revocation_reason": null,
+    "revoked": false,
+    "revoked_at": null,
+    "signature": "Px5vRIS/wcPGNqHy3ilQXFbZr4AXiRfmNCmuU2jEF63eawUS73altLBXqEm/zJyGy81hvgOtFzuEYsBROz8MBQ==",
+    "verify_url": "http://localhost:5000/verify/aa0511f9-01c9-4225-91f8-1ea6410865ce"
+  },
+  "ab140e29-caa7-4814-848c-6b39e86c367f": {
+    "artifacts": {
+      "pdf_filename": "certificate-ab140e29-caa7-4814-848c-6b39e86c367f.pdf"
+    },
+    "cohort": "unspecified",
+    "email": null,
+    "id": "ab140e29-caa7-4814-848c-6b39e86c367f",
+    "issued_at": "2025-11-24T10:24:04Z",
+    "linkedin_share_url": "https://www.linkedin.com/sharing/share-offsite/?url=http%3A%2F%2Flocalhost%3A5000%2Fverify%2Fab140e29-caa7-4814-848c-6b39e86c367f",
+    "metadata": {},
+    "name": "SolomonNdegwa",
+    "ots_proof_path": "C:\\Users\\dell\\DADA\\DADADEVSCERT\\backend\\data\\ots\\ab140e29-caa7-4814-848c-6b39e86c367f.ots",
+    "ots_status": "disabled",
+    "public_payload_url": null,
+    "revocation_reason": null,
+    "revoked": false,
+    "revoked_at": null,
+    "signature": "rBHeAGie6X4c7jhieNerr9WeFrbrgG8hrkzQNPtn3Sz7TyMnPVLWbfbhb0wgaeo6n4S/SlwfLgv22G1dPvgPBA==",
+    "verify_url": "http://localhost:5000/verify/ab140e29-caa7-4814-848c-6b39e86c367f"
   },
   "ba210698-8109-419a-8024-db0fbca94c67": {
     "artifacts": {

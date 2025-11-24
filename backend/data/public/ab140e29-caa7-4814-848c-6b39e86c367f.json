@@ -1,0 +1,11 @@
+{
+  "id": "ab140e29-caa7-4814-848c-6b39e86c367f",
+  "name": "SolomonNdegwa",
+  "cohort": "unspecified",
+  "issued_at": "2025-11-24T10:24:04Z",
+  "revoked": false,
+  "signature": "rBHeAGie6X4c7jhieNerr9WeFrbrgG8hrkzQNPtn3Sz7TyMnPVLWbfbhb0wgaeo6n4S/SlwfLgv22G1dPvgPBA==",
+  "verify_url": "http://localhost:5000/verify/ab140e29-caa7-4814-848c-6b39e86c367f",
+  "linkedin_share_url": "https://www.linkedin.com/sharing/share-offsite/?url=http%3A%2F%2Flocalhost%3A5000%2Fverify%2Fab140e29-caa7-4814-848c-6b39e86c367f",
+  "ots_status": "disabled"
+}
