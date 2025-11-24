@@ -59,6 +59,26 @@
     "signature": "BSEVSXTdvLgA2KIcg599voPT+qVmKUJcIv10C4+8yh4rIT7Am3q+Ttd4tKXEYhcA3X3rI4hcxrXVrnLmmo0MAg==",
     "verify_url": "http://localhost:5000/verify/4d22cfd0-750a-41a1-9177-c4fff0de4a5e"
   },
+  "4f6ae136-b6ae-4c19-b6ff-85deb4f82d14": {
+    "artifacts": {
+      "pdf_filename": "certificate-4f6ae136-b6ae-4c19-b6ff-85deb4f82d14.pdf"
+    },
+    "cohort": "2",
+    "email": null,
+    "id": "4f6ae136-b6ae-4c19-b6ff-85deb4f82d14",
+    "issued_at": "2025-11-24T10:17:20Z",
+    "linkedin_share_url": "https://www.linkedin.com/sharing/share-offsite/?url=http%3A%2F%2Flocalhost%3A5000%2Fverify%2F4f6ae136-b6ae-4c19-b6ff-85deb4f82d14",
+    "metadata": {},
+    "name": "SolomonNdegwa",
+    "ots_proof_path": "C:\\Users\\dell\\DADA\\DADADEVSCERT\\backend\\data\\ots\\4f6ae136-b6ae-4c19-b6ff-85deb4f82d14.ots",
+    "ots_status": "disabled",
+    "public_payload_url": null,
+    "revocation_reason": null,
+    "revoked": false,
+    "revoked_at": null,
+    "signature": "CMNE4jwpz+ZmL2ckIWDN9AfHKKPVSqjCp+QX1qdczudix8AinyGzAeHpgeYBf2dAnk0vdI0LgAMviwgooYcpCQ==",
+    "verify_url": "http://localhost:5000/verify/4f6ae136-b6ae-4c19-b6ff-85deb4f82d14"
+  },
   "6ab27eaa-9987-4568-8352-bfcefb43f9ee": {
     "artifacts": {
       "pdf_filename": "certificate-6ab27eaa-9987-4568-8352-bfcefb43f9ee.pdf"
